@@ -41,7 +41,7 @@ const getUser = async (req, res) => {
   res.json({
     ok: true,
     user: userDB,
-    uid: req.id
+    uid: req.id,
   });
 };
 

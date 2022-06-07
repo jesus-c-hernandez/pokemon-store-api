@@ -22,7 +22,6 @@ const {
 const router = Router();
 
 router.get( '/users', validarJWT, getUsers );
-// router.get("/users", getUsers);
 router.get("/users/:id",validarJWT, getUser);
 
 router.post(

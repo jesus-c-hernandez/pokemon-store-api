@@ -1,5 +1,4 @@
 require('dotenv').config();
-const path = require('path');
 
 const express = require('express');
 const cors = require('cors');
@@ -22,11 +21,12 @@ const API_URL = config.baseURL
 // Base de datos
 dbConnection();
 
-app.use(API_URL, require('./routers'));
-
 // Directorio publico
 app.use( express.static('public') );
 
+app.use(API_URL, require('./routers'));
+
+
 app.listen( process.env.PORT, () => {
-    console.log('Servidor corriendo en purto ' + process.env.PORT );
+    console.log('Servidor corriendo en puerto ' + process.env.PORT );
 });

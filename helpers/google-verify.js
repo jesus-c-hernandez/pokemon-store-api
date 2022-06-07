@@ -11,6 +11,9 @@ const googleVerify = async ( token ) => {
         //[CLIENT_ID_1, CLIENT_ID_2, CLIENT_ID_3]
     });
     const payload = ticket.getPayload();
+
+    console.log('Payload', payload );
+
     const userid = payload['sub'];
 
     console.log( payload );
