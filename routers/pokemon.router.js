@@ -15,9 +15,9 @@ const {
 
 const router = Router();
 
-router.get( '/pokemons', validarJWT, getPokemons );
-router.get( '/pokemons/type/:type', validarJWT, getTypePokemons );
-router.get( '/pokemons/score/:score', validarJWT, getBestPokemons );
+router.get( '/pokemons', getPokemons );
+router.get( '/pokemons/type/:type', getTypePokemons );
+router.get( '/pokemons/score/:score', getBestPokemons );
 
 router.put(
   '/pokemons/:id',
