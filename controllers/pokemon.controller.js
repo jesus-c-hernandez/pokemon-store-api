@@ -2,7 +2,16 @@ const { response } = require("express");
 
 const Pokemon = require("../models/pokemon.model");
 
-const PokemonService = require("../pokemon/pokemon");
+const PokemonService = require("../services/pokemon");
+
+const getPokemon = async ( req, res ) => {
+  const id = req.params.id;
+  const pokemon = await PokemonService.getPokemon( id );
+  res.json({
+    ok: true,
+    data: pokemon,
+  });
+}
 
 const getPokemons = async (req, res) => {
   const from = Number(req.query.from) || 0;
@@ -106,6 +115,7 @@ const updatePokemon = async (req, res = response) => {
 };
 
 module.exports = {
+  getPokemon,
   getPokemons,
   getTypePokemons,
   getBestPokemons,

@@ -2,7 +2,7 @@ const axios = require("axios");
 require("dotenv").config();
 
 class PokemonService {
-  async get( id ) {
+  async getPokemon( id ) {
     console.log("GET");
 
     const resp = await axios.get(`https://pokeapi.co/api/v2/pokemon/${id}`);
@@ -12,9 +12,6 @@ class PokemonService {
     const description = await this.getDescriptionPokemon(number);
     const weight = resp.data.weight;
     const height = resp.data.height;
-
-    console.log( resp.data.abilities[0] );
-
     const abilities = resp.data.abilities.map( a => { return a.ability.name });
     const price = this.random(1000, 10000);
     const types = resp.data.types.map( a => { return a.type.name });
